@@ -1,0 +1,83 @@
+.characterEditor {
+  padding-top: 128px;
+  padding-bottom: 64px;
+}
+
+.maxWidthWrapper {
+  max-width: 1024px;
+}
+
+.header {
+  width: 65%;
+  padding-bottom: 64px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.description {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.characterWrapper {
+  position: fixed;
+  min-height: 500px;
+  width: 35%;
+  right: 0;
+  top: 128px;
+}
+
+.controlColumn {
+  width: 50%;
+}
+
+.background {
+  background-color: hsl(195deg, 20%, 86%);
+  position: fixed;
+  top: 60%;
+  bottom: 0;
+  width: 100%;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 500px) {
+  .characterEditor {
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: 100%;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .background {
+    display: none;
+  }
+
+  .header {
+    display: none;
+  }
+
+  .maxWidthWrapper {
+    isolation: isolate;
+    max-width: 100%;
+  }
+
+  .controlColumn {
+    display: flex;
+    white-space: nowrap;
+    overflow: auto;
+    width: 100%;
+  }
+
+  .characterWrapper {
+    position: relative;
+    width: 100%;
+    top: 0;
+    right: -10%;
+  }
+}
