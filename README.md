@@ -43,3 +43,10 @@ You only have to work on a desktop version, but if you want a challenge, you can
 - Exercise 5 (Bonus): Implement a mobile variant - on mobile devices, the cards should stack horizontally, and sit near the bottom of the screen, underneath the character
 
 You can find more info in the README.md file in the `character-creator` folder.
+
+## Module 3 - Styled components
+
+### Exercise Button
+
+Create a reusable button according to the provided design specs in figma. You should create variants for fill, outline and ghost, and large, medium and small size. Add default, focus and hover styles.
+You should create your Button in the Button.js file in the `styled-components-button` folder.
