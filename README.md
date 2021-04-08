@@ -50,3 +50,37 @@ You can find more info in the README.md file in the `character-creator` folder.
 
 Create a reusable button according to the provided design specs in figma. You should create variants for fill, outline and ghost, and large, medium and small size. Add default, focus and hover styles.
 You should create your Button in the Button.js file in the `styled-components-button` folder.
+
+### Exersises - Mini Component Library
+
+In this workshop, you'll build 3 components from scratch:
+
+1. ProgressBar
+2. Select
+3. IconInput
+
+For more info see the README.md file in the `mini-component-library` folder.
+
+_Notes requirements Progress Bar:_ <br>
+
+- should accept **value** prop
+- support numbers between 0 and 100
+- should be accessible
+- 3 sizes: small, medium, large
+- large size has inner padding
+- inner bar (large size) should be rounded on left, on right it should be rounded only when it approaches 100%.
+- use provided box-shadow (README.md file in the `mini-component-library` folder)
+
+_Accessibility:_<br>
+
+- **progressbar role** should be used for element that displays progress status for task that takes a long time of consists of several steps.
+- if actual value of progressbar can be determined, it should be indicated using `aria-valuenow`, `aria-valuemin`, and `aria-valuemax` attributes.
+- if progress value is indeterminate, `aria-valuenow` should be omitted.
+- `aria-valuenow` should be updated dynamically to indicate the progress.
+- if progressbar describes loading progress of particular region of a page, `aria-describedby` should be used to point to the status, and `aria-busy` should be set to true on the region, until finished loading.
+- Screen readers will display the value of `aria-valuenow` as a percentage of the range between the value of `aria-valuemin` and `aria-valuemax`. You can change this using `aria-valuetext` which will give a human readable text alternative for `aria-valuenow`.
+
+To start storybook: <br>
+`cd mini-component-library` <br>
+`npm install` <br>
+`npm start` <br>
