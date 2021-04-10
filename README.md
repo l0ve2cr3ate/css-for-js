@@ -80,6 +80,16 @@ _Accessibility:_<br>
 - if progressbar describes loading progress of particular region of a page, `aria-describedby` should be used to point to the status, and `aria-busy` should be set to true on the region, until finished loading.
 - Screen readers will display the value of `aria-valuenow` as a percentage of the range between the value of `aria-valuemin` and `aria-valuemax`. You can change this using `aria-valuetext` which will give a human readable text alternative for `aria-valuenow`.
 
+_Notes requirements Progress Bar:_ <br>
+
+- use Icon component with id 'chevrond-down' for down arrow of select
+- use native <select> element
+- getDisplayValue function can be used to get text of selected value
+- select should adjust width based on length of selected option
+- when clicked, should use default select ui
+- should have focus state --> default outline
+- should have hover state --> text + icon become darker
+
 To start storybook: <br>
 `cd mini-component-library` <br>
 `npm install` <br>
