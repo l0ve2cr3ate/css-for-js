@@ -1,4 +1,5 @@
-import { HeaderContainer, Logo, Nav, NavLink } from "./Header.styles";
+import { HeaderContainer, Nav, NavLink } from "./Header.styles";
+import Logo from "../Logo";
 
 const Header = () => (
   <HeaderContainer>
