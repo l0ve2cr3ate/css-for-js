@@ -16,12 +16,6 @@ import {
   MainColumn,
 } from "./App.styles";
 
-// TODO: Logo should be h1 wrapped in a tag for a11y.
-// TODO: ShoeItem should be wrapped within a Link
-// TODO: create variant for sale price with a strikethrough of normal text
-// TODO: Refactor tag to return SaleTag or ReleaseTag for better readability
-// TODO: Refactor code in ShoeItem
-
 function App() {
   const [sortValue, setSortValue] = useState("newest");
   return (
