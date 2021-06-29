@@ -26,10 +26,15 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
-       
+
         <Side />
         <MobileNav>
-          <UnstyledButton>
+          {/* Visually align items to look centered */}
+          <UnstyledButton
+            css={`
+              transform: translateX(-2px);
+            `}
+          >
             <Icon color={COLORS.black} id="shopping-bag" strokeWidth={2} />
           </UnstyledButton>
           <UnstyledButton>
@@ -53,33 +58,41 @@ const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto;
 
-  @media ${QUERIES.laptopAndDown} {
+
+  @media ${QUERIES.tabletAndDown} {
     border-top: 4px solid ${COLORS.gray[900]};
+  }
+
+  @media ${QUERIES.phoneAndDown} {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 `;
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem, 9.5vw - 4.5rem, 3.5rem);
   margin: 0px 48px;
 
-  @media ${QUERIES.laptopAndDown} {
+  @media ${QUERIES.tabletAndDown} {
     display: none;
   }
 `;
 
 const MobileNav = styled.nav`
   display: none;
-  gap: 24px;
+  gap: 32px;
   align-self: center;
 
-  @media ${QUERIES.laptopAndDown} {
+  @media ${QUERIES.tabletAndDown} {
     display: flex;
+  }
+
+  @media ${QUERIES.phoneAndDown} {
+    gap: 16px;
   }
 `;
 
