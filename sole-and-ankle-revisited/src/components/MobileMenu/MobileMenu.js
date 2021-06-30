@@ -6,7 +6,6 @@ import { DialogOverlay, DialogContent } from "@reach/dialog";
 import UnstyledButton from "../UnstyledButton";
 import Icon from "../Icon";
 import VisuallyHidden from "../VisuallyHidden";
-import { COLORS, WEIGHTS } from "../../constants";
 
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
@@ -20,7 +19,7 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
         <ButtonWrapper>
           <UnstyledButton onClick={onDismiss}>
             <VisuallyHidden>Close mobile navigation</VisuallyHidden>
-            <Icon color={COLORS.black} id="close" strokeWidth={2} />
+            <Icon id="close" strokeWidth={2} />
           </UnstyledButton>
         </ButtonWrapper>
         <MobileNav>
@@ -47,7 +46,7 @@ export default MobileMenu;
 
 const StyledDialogOverlay = styled(DialogOverlay)`
   position: absolute;
-  background-color: hsl(220deg, 5%, 40%, 0.75);
+  background-color: var(--backdrop);
   width: 100vw;
   min-height: 100vh;
   height: 100%;
@@ -60,7 +59,7 @@ const StyledDialogContent = styled(DialogContent)`
   position: absolute;
   width: 90%;
   height: 100%;
-  background-color: ${COLORS.white};
+  background-color: var(--white);
   display: flex;
   flex-direction: column;
   padding-left: 48px;
@@ -89,17 +88,17 @@ const NavLink = styled.a`
 
   ${MobileNav} & {
     font-size: 22px;
-    color: ${COLORS.gray[900]};
-    font-weight: ${WEIGHTS.medium};
+    color: var(--gray-900);
+    font-weight: var(--font-weight-medium);
     text-transform: uppercase;
   }
 
   ${Footer} & {
     font-size: 16px;
-    color: ${COLORS.gray[700]};
+    color: var(--gray-700);
   }
 
   &.active {
-    color: ${COLORS.secondary};
+    color: var(--secondary);
   }
 `;

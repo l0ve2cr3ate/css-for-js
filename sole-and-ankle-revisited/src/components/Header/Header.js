@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, QUERIES, WEIGHTS } from "../../constants";
+import {  QUERIES } from "../../constants";
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
@@ -35,13 +35,13 @@ const Header = () => {
               transform: translateX(-2px);
             `}
           >
-            <Icon color={COLORS.black} id="shopping-bag" strokeWidth={2} />
+            <Icon id="shopping-bag" strokeWidth={2} />
           </UnstyledButton>
           <UnstyledButton>
-            <Icon color={COLORS.black} id="search" strokeWidth={2} />
+            <Icon id="search" strokeWidth={2} />
           </UnstyledButton>
           <UnstyledButton onClick={() => setShowMobileMenu(true)}>
-            <Icon color={COLORS.black} id="menu" strokeWidth={2} />
+            <Icon id="menu" strokeWidth={2} />
           </UnstyledButton>
         </MobileNav>
       </MainHeader>
@@ -58,12 +58,12 @@ const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+  border-bottom: 1px solid var(--gray-300);
   overflow: auto;
 
 
   @media ${QUERIES.tabletAndDown} {
-    border-top: 4px solid ${COLORS.gray[900]};
+    border-top: 4px solid var(--gray-900);
   }
 
   @media ${QUERIES.phoneAndDown} {
@@ -105,11 +105,11 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
-  font-weight: ${WEIGHTS.medium};
+  color: var(--gray-900);
+  font-weight: var(--font-weight-medium);
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--secondary);
   }
 `;
 

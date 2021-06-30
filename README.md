@@ -468,6 +468,10 @@ Use fluid gaps between the nav links, to reduce the likelihood that it will not 
 **Goal:**
 
 Spacing between items stretches and squashes depending on window width, and when the window gets too small, the content overflows with a scrollbar spanning the header. 
+- Exercise 6: Theming with CSS Variables
+In this exercise, your goal is to update the project to use CSS variables for colors, and optionally font-weights.
+
+**BONUS**: The modal backdrop should use a CSS variable that is created using fragments from the main colors.
 
 ## Notes Module 5 - Responsive and Behavioral CSS
 **Working with Mobile Devices** <br>
