@@ -741,3 +741,24 @@ Scaling text based on viewport can be done using:
 2. shrink/grow text using `vw` unit -> fluid
 Same applies to design. Fluid approach can be accomplished using flexbox/grid.
 
+## Notes Module 6 - Typography and Images
+
+**Text Rendering** <br>
+- Kerning
+Letter placement differs slightly across browers because of different kerning algorithms. <br> *Kerning*: spacing between individual characters. <br>
+Use `font-kerning: none` to disable kerning. <br>
+`letter-spacing` allows you to change the space between individual characters. The browsers doesn't do any kerning for *monospaced* fonts. <br>
+
+- Text Rasterization
+The browser's *operating system* also affects how typography us rendered. Nowadays fonts mostly use *vector* formats, like `ttf`, `otf`, `svg` or `woff/woff2`. Vector fonts can be scaled to any size without looking pixelated/blurry. To display a vector font on the screen, the browser needs to apply *rasterization*: process of deciding what color each pixel needs to be. This can be most simply done by filling pixels that the vector path crosses, but this results in pixellated text. The browser can make the font look smoother by *anti-aliasing*. Both browser and operating system play a role in rasterization and anti-aliasing. <br>
+
+- Font Smoothing
+`-webkit-font-smoothing` property allows you to switch aliasing algorithm of the browser, BUT: it only works on MacOS, and only in Chrome/Safari/Edge. <br>
+The default is `subpixel-antialiased`, which uses RGB elements of a pixel to produce more-precise anti-aliasing. Nowadays the pixel arrangement has become more complex, and Apple no longer thinks subpixel-antialiasing gives an advantage anymore, so it is disabled since MacOS Mojave (2018), BUT: Chrome and Safari don't inherit the system default. You need to actively change it: 
+
+```CSS
+*, *:before, *:after {
+  -webkit-font-smoothing: antialiased;
+}
+```
+
