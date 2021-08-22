@@ -268,12 +268,12 @@ _Accessibility:_<br>
 _Notes requirements ProgressBar:_ <br>
 
 - use Icon component with id 'chevrond-down' for down arrow of select
-- use native <select> element
-- getDisplayValue function can be used to get text of selected value
-- select should adjust width based on length of selected option
-- when clicked, should use default select ui
-- should have focus state --> default outline
-- should have hover state --> text + icon become darker
+- use native `<select>` element 
+- getDisplayValue function can be used to get text of selected value 
+- select should adjust width based on length of selected option 
+- when clicked, should use default select ui 
+- should have focus state --> default outline 
+- should have hover state --> text + icon become darker 
 
 _Notes requirements IconInput:_ <br>
 
@@ -294,7 +294,7 @@ To start storybook: <br>
 
 # Sole&Ankle — Module 4 workshop
 
-In this workshop, the goal is to finish building an e-commerce store!
+In this workshop, the goal is to finish building an e-commerce store! <br>
 
 To start the project: <br>
 `cd sole-and-ankle` <br>
@@ -761,4 +761,48 @@ The default is `subpixel-antialiased`, which uses RGB elements of a pixel to pro
   -webkit-font-smoothing: antialiased;
 }
 ```
+
+**Other Browsers**
+MacOS Firefox has `moz-osx-font-smoothing` property, but this only allows you to toggle between `grayscale` and `auto`. It doesn't seem very useful. <br>
+On Windows there are no properties at all. <br>
+
+*WebKit*: browser rendering enginge created by Apple. In 2013 Google forked WebKit and created *Blink* rendering engine, nowadays used by Chrome and Edge. <br>
+
+**Text Overflow**
+A browser groups characters into *words*: a collection of characters that can't be broken up. Words are separated by *breaking characters* like whitespace and `-`, referred to as *soft wrap oppertunities* in CSS specification. When content doesn't fit in the containing block, the browser looks for the closest soft wrap oppertunity, and places the text after this on a new line. <br>
+
+- Non-breaking spaces
+`&bnsp;` can be used to add a space that's not a soft line wrap oppertunity.
+
+- Balanced Text
+Default text-placement can lead to *widows*: single word on last line of paragraph. Adobe has made a CSS proposal got and alternative-text placement algorithm + JS polyfill.
+
+- Wrapping onto multiple lines
+Long words can't be broken up by default text-placing algorithm. They have no soft wrapping oppertunity. With `overflow-wrap: break-word` you can change the default text-placing alogorithm and line wrap long words.
+
+- Hyphenation
+You can add hyphens to indicate *word-breaks*: `hyphens: auto` <br>
+-> NOTE:  <br>
+  - only works when `lang` attribute in `<html>` is set, and doesn't work for all languages.
+  - on certain browses `hyphens: auto` won't affect certain strings like URLs.
+  - hyphens will not be selectable, so line-broken urls can still be copy/pasted.
+
+- Ellipsis
+Break text off if it doesn't fit. <br>
+**Single line ellipsis** <br>
+```CSS
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+```
+
+**Multiline ellipsis** <br>
+```CSS 
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+```
+NOTE: Watch out using the above code with flexbox/grid. Avoid issues by applying line clamping to element that isn't being stretched/flexed by flexbox/grid --> use wrapper div. <br>
+
 
