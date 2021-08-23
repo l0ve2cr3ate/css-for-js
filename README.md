@@ -788,21 +788,21 @@ You can add hyphens to indicate *word-breaks*: `hyphens: auto` <br>
   - hyphens will not be selectable, so line-broken urls can still be copy/pasted.
 
 - Ellipsis
-Break text off if it doesn't fit. <br>
-**Single line ellipsis** <br>
-```CSS
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; 
-```
+  Break text off if it doesn't fit. <br>
+  **Single line ellipsis** <br>
+  ```CSS
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+  ```
 
-**Multiline ellipsis** <br>
-```CSS 
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  overflow: hidden;
-```
-NOTE: Watch out using the above code with flexbox/grid. Avoid issues by applying line clamping to element that isn't being stretched/flexed by flexbox/grid --> use wrapper div. <br>
+  **Multiline ellipsis** <br>
+  ```CSS 
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+  ```
+  NOTE: Watch out using the above code with flexbox/grid. Avoid issues by applying line clamping to element that isn't being stretched/flexed by flexbox/grid -> use wrapper div. <br>
 
 
