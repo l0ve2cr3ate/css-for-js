@@ -806,3 +806,69 @@ You can add hyphens to indicate *word-breaks*: `hyphens: auto` <br>
   NOTE: Watch out using the above code with flexbox/grid. Avoid issues by applying line clamping to element that isn't being stretched/flexed by flexbox/grid -> use wrapper div. <br>
 
 
+  **Print-style Layouts** <br>
+  - *Column Layout*
+  *Multi-column Layout*: automatically split content across multiple columns and allow parent container to grow/shrink accordingly. 
+
+  ```CSS
+  .wrapper {
+    columns: 2;
+    column-gap: 16px;
+    padding: 16px;
+  }
+  ```
+
+  To avoid that a child is broken up across columns: 
+
+  ```CSS
+  p {
+    break-inside: avoid;
+  }
+  ```
+
+-> distributes content evenly so columns have same height.
+
+- *Floats*
+Floats allow text to wrap around an embedded element, like an image.
+
+```CSS
+img {
+  float: left;
+  margin-right: 16px;
+}
+```
+
+- _Indentation_
+  - option 1
+  ```CSS
+  p::first-letter {
+    margin-left: 2rem;
+  }
+  ```
+
+  - option 2
+  ```CSS
+  p {
+    text-indent: 2rem;
+  }
+  ```
+`::first-letter` -> can be used for typographical effects like 'drop caps' (larger first letter). In the future 'drop caps' can be done with:
+
+```CSS
+p:first-of-type {
+  initial-letter: 2; /* number of lines to span */
+}
+```
+-> inital-letter at the moment only supported on Safari.
+
+- _Justified alignment_: each line fills available horizontal space:
+```CSS
+p {
+  text-align: justify;
+  padding: 16px;
+}
+```
+
+
+
+
