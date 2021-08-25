@@ -869,6 +869,27 @@ p {
 }
 ```
 
+*Masonry Grid with Columns* <br>
+Column layout can be used to implement masonry layout.
+
+- What is masonry layout?
+A way of stacking elements in assymetric grid, often used with images.
+
+- Limitations
+Items are laid out from top to bottom, but users view content from left to right (or right to left in some countries). The tab order will also be affected (for interactive elements). If you add items to the grid, they are not added to the end, but to the final column -> important to keep in mind when implementing infinite scrolling.
+
+- Future
+Css grid will make masonry layout easy in the near future. 
+
+```CSS
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: masonry;
+}
+```
+
+This masonry layout lets you control the order in which the elements are displayed.
 
 
 
