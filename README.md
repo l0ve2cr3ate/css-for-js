@@ -891,5 +891,28 @@ Css grid will make masonry layout easy in the near future.
 
 This masonry layout lets you control the order in which the elements are displayed.
 
+**Text Styling** <br>
+
+- Line Length
+Should be between 50-75 characters per line -> use `ch` unit: `max-width: 50ch`. 1ch is width of `0` character at current fontsize. The `0` character might be thicker/thinner than average.
+
+- Text Alignment
+`text-align: center` moves all individual characters to middle of each line. <br>
+`align-items: center` positions the paragraph as a block, not the individual characters. <br>
+
+- Font Stacks
+```CSS
+font-family: 'Lato', Futura, Helvetica, Arial, sans-serif;
+```
+-> preference list. Last one is the 'category' of the font link serif, so if the other options are not available, the browser will use its default font for that category. Fonts can be unavailable because they are not installed on user's device or if a web font is not yet downloaded.
+
+- System Font Stack: stack of fonts that default to nicest default for each platform:
+```CSS
+p {
+  font-family: -aplle-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica Ubuntu, roboto, note, arial, sans-serif;
+}
+```
+
+-> you can store these fonts in a css variable.
 
 
