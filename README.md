@@ -915,4 +915,40 @@ p {
 
 -> you can store these fonts in a css variable.
 
+**Web Fonts** <br>
+_Google Fonts_: online free open-source web-fonts. <br>
+Web fonts should be wrapped within quotes, like so: `font-family: "Open Sans", sans-serif;` <br>
+
+Advantages of google fonts:
+
+- easy to use
+- free
+
+Disadvantages of google fonts:
+
+- not all fonts are available
+- performance of self-hosted fonts is better 
+
+How Google Fonts work:
+
+1. Browser fetches `index.html` file.
+2. Browser reads `<link href="https://fonts.googleapis.com/css2">` tag + fires request to fetch css file.
+3. Browser parses requested css file + fires request to download font from https://fonts.gstatic.com.
+
+When using a self-hosted web font, you can embed the css that fetches the font in your HTML file, for better performance. <br>
+
+_Font-face tag_: tells browser which web font to use. <br>
+```CSS
+@font-face {
+  font-family: 'Wotfard';
+  src: url('/fonts/wotfard-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+```
+
+You need multiple `@font-face` statements, because each font weight and style has its own file. To load the font as soon as possible, you can put the `@font-face` statements in your `index.html` file in a `<style>` tag. <br>
+
+_Faux bolds and italics_ <br>
+When you didn't provide a bold/italic font file, the browser can create 'faux' bold/italic text, but these don't have the best quality.
 
