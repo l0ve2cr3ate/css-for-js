@@ -950,5 +950,21 @@ _Font-face tag_: tells browser which web font to use. <br>
 You need multiple `@font-face` statements, because each font weight and style has its own file. To load the font as soon as possible, you can put the `@font-face` statements in your `index.html` file in a `<style>` tag. <br>
 
 _Faux bolds and italics_ <br>
-When you didn't provide a bold/italic font file, the browser can create 'faux' bold/italic text, but these don't have the best quality.
+When you didn't provide a bold/italic font file, the browser can create 'faux' bold/italic text, but these don't have the best quality. <br>
+
+
+**Icons** <br>
+- icon fonts
+- svg
+
+Advantages of svg icons over icon fonts:
+- look more sharp
+- easier to position (width, height vs font-size)
+- can be more accessible
+- can be multicolor
+- can be tweaked and animated
+
+_Spacing Issues_
+Svg elements are inline elements by default. Inline elements have _magic space_. To remove this space, you can use `display: block` on the svg element.
+
 
