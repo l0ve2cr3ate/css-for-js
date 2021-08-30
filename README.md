@@ -965,6 +965,23 @@ Advantages of svg icons over icon fonts:
 - can be tweaked and animated
 
 _Spacing Issues_
-Svg elements are inline elements by default. Inline elements have _magic space_. To remove this space, you can use `display: block` on the svg element.
+Svg elements are inline elements by default. Inline elements have _magic space_. To remove this space, you can use `display: block` on the svg element. <br>
 
+**Images** <br>
+`<img>` tag has 2 attributes:
+- src
+- alt: if the image is decorative you can leave alt tag empty: `alt=""` Otherwise, provide semanitally meaningfull description of image here. <br>
 
+_img vs background-image_ <br>
+Use `background-image` for backgrounds, not for semantically meaningfull images. It doesn't have an alt tag. <br>
+
+_Fit and Position_ <br>
+img is a 'replaced element'. The browser replaces the `<img>` tag with the image itself. Images are _inline_ elements. Inline elements normally don't have height, but iamges do. Images have _intrinsic size_, based on dimensions of the image file. They also have an _intrinsic aspect ratio_. If you only provide width _or_ height, the other property will scale up/down accordingly to the aspect ratio. <br>
+
+_`object-fit`_: works for images and `<video>` tags. <br>
+- default = `fill` -> fill the available space, but loose aspect ratio.
+- `contain` -> contain aspect ratio, show full image, but don't fill all available space.
+- `cover` -> fill all available space, keep aspect ratio, don't show full image.
+
+_Object Position_ <br>
+`object-fit: cover` -> crops image + shows center. `object-position` lets you specify which part of the image should be shown. It takes two numbers, one for horizontal offset and one for vertical offset. You can also use keywords: `object-position: left top`, is the same as `object-position: 0% 0%`. <br>
