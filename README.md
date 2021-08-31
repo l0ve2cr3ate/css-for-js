@@ -985,3 +985,70 @@ _`object-fit`_: works for images and `<video>` tags. <br>
 
 _Object Position_ <br>
 `object-fit: cover` -> crops image + shows center. `object-position` lets you specify which part of the image should be shown. It takes two numbers, one for horizontal offset and one for vertical offset. You can also use keywords: `object-position: left top`, is the same as `object-position: 0% 0%`. <br>
+
+**_Flexbox interactions_** <br>
+Cross axis flexbox: default = stretch -> images are stretched/distorted. Images have a min-width of their intrinsic width. If you want them to shrink below this, you can override the min-width:
+
+```CSS
+img {
+  min-width: 0;
+}
+```
+**better solution**: wrap images in a container so they are not direct children of flex-parent + set width of img to `100%`. <br>
+
+**Aspect ratio**<br>
+`aspect-ratio` property takes 2 numbers, separated by a /: 2/3 (width/height). <br>
+`aspect-ratio` allows to auto-calculate height of element based on its dynamic width. It works for any element, not just for images. <br>
+
+_Padding Fallback_ <br>
+`aspect-ratio` property is not fully supported yet. You can use `padding-bottom` hack:
+
+```CSS
+.padding-hack {           /* on div around the img */
+  height: 0px;                
+  padding-bottom: 100%;
+  position: relative;
+}
+
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+```
+Percentages in padding always refer to width. Combining `0px height` + percentage-based `padding-bottom` lets you create any aspect ratio: 
+
+```CSS
+height: 0px;
+padding-bottom: 50%;        /* aspect ratio: 1/2 */
+```
+
+```CSS
+height: 0px;
+padding-bottom: calc(7/5 * 100%);        /* aspect ratio: 5/7 */
+```
+
+**Problem**: content box is 0px height, but it needs to have room for the image. <br>
+**Solution**: absolute positioning -> take img out of flow.
+
+The `padding-bottom` hack is a hacky solution. <br>
+
+**Progressive enhancement** <br>
+Instead of using the hacky padding-bottom hack, you can use aspect-ratio for supported browsers, and an acceptable solution for not supported browsers: <br>
+```CSS
+img {
+  width: 100%;              /* On not supported browsers fixed width is used */
+  height: 200px;
+  object-fit: cover;
+}
+
+@supports (aspect-ratio: 1/1) {
+  img {                    /* On supported browsers image scales nicely using aspect-ratio */
+    height: revert;
+    aspect-ratio: 1/1;
+  }
+}
+```
